@@ -48,7 +48,7 @@ Instead of relying on a centralized search engine and a cloud-based AI service, 
                   │                     ▲
                   │                     │
                   └──── Search Results ─┘
-Search and AI Flow
+Search and AI flow
 User Query
     │
     ▼
@@ -76,7 +76,9 @@ Llama 3.2
     │
     ▼
 AI Answer + Citations
+
 For follow-up questions, KSearch uses recent conversation context to construct a contextual search query. The original follow-up question and conversation history are then provided to the AI model to generate a context-aware response.
+
 🛠️ Tech Stack
 Frontend
 React
@@ -95,7 +97,9 @@ Docker Compose
 AI
 Ollama
 Llama 3.2
-📁 Project Structure
+
+Project Structure
+
 ksearch/
 │
 ├── backend/
@@ -129,6 +133,7 @@ Ollama
 1. Clone the repository
 git clone https://github.com/karan69420/ksearch.git
 cd ksearch
+
 2. Start SearXNG and Valkey
 cd searxng
 docker compose up -d
@@ -136,8 +141,7 @@ SearXNG will be available at:
 http://localhost:8080
 3. Start Ollama
 Make sure Ollama is running and that the model is available:
-ollama run llama3.2
-4. Start the FastAPI backend
+ollama run llama3.24. Start the FastAPI backend
 Open a new terminal:
 cd ksearch/backend
 If you are using a Python virtual environment:
