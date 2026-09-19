@@ -4,21 +4,21 @@
 
 KSearch is a privacy-focused search engine that combines traditional web search with locally running AI to provide grounded answers with source citations and conversational follow-up questions.
 
-Instead of sending search queries to a centralized search engine and relying on a cloud AI service, KSearch uses **SearXNG** for metasearch and **Ollama with Llama 3.2** for locally generated AI responses.
+Instead of relying on a centralized search engine and a cloud-based AI service, KSearch uses **SearXNG** for metasearch and **Ollama with Llama 3.2** for locally generated AI responses.
 
 ---
 
 ## ✨ Features
 
 - 🔎 **Web Search** — Search the web through SearXNG.
-- 📰 **News Search** — Search specifically for recent news.
+- 📰 **News Search** — Search specifically for news.
 - 🖼️ **Image Search** — Browse image search results in a visual grid.
 - 🤖 **AI Answers** — Generate answers from retrieved search results using a local LLM.
-- �� **Source Citations** — AI answers include clickable citations linked to their supporting sources.
+- 📚 **Source Citations** — AI answers include clickable citations linked to supporting sources.
 - 💬 **Conversational Follow-ups** — Ask follow-up questions while preserving conversation context.
 - 🔐 **Local AI** — Uses Ollama and Llama 3.2 instead of a paid cloud LLM API.
-- ⚡ **FastAPI Backend** — Lightweight API connecting the frontend, search engine and AI model.
-- 🐳 **Dockerized Search Infrastructure** — SearXNG and Valkey run through Docker Compose.
+- ⚡ **FastAPI Backend** — Connects the frontend, search engine and AI model.
+- 🐳 **Dockerized Infrastructure** — SearXNG and Valkey run through Docker Compose.
 
 ---
 
@@ -43,12 +43,12 @@ Instead of sending search queries to a centralized search engine and relying on 
           │   SearXNG    │      │    Ollama    │
           │              │      │   Llama 3.2  │
           │ Web / News / │      │              │
-          │    Images    │      │ Local LLM    │
+          │    Images    │      │    Local LLM │
           └──────────────┘      └──────────────┘
                   │                     ▲
                   │                     │
                   └──── Search Results ─┘
-Search + AI flow :
+Search and AI Flow
 User Query
     │
     ▼
@@ -63,7 +63,7 @@ SearXNG
     ▼
 Search Results
     │
-    ├──────────────► Display results
+    ├──────────────► Display Results
     │
     ▼
 FastAPI /ai-answer
@@ -75,9 +75,9 @@ Ollama
 Llama 3.2
     │
     ▼
-Grounded AI Answer + Citations
-For follow-up questions, KSearch combines recent conversation context with the new question when searching, while the original follow-up question and conversation history are passed to the AI model.
-��️ Tech Stack
+AI Answer + Citations
+For follow-up questions, KSearch uses recent conversation context to construct a contextual search query. The original follow-up question and conversation history are then provided to the AI model to generate a context-aware response.
+🛠️ Tech Stack
 Frontend
 React
 Vite
@@ -87,14 +87,15 @@ Backend
 Python
 FastAPI
 HTTPX
-Search
+Search Infrastructure
 SearXNG
 Valkey
 Docker
 Docker Compose
 AI
 Ollama
-Llama 3.2📁 Project Structure
+Llama 3.2
+📁 Project Structure
 ksearch/
 │
 ├── backend/
@@ -119,7 +120,7 @@ ksearch/
 └── README.md
 🚀 Running Locally
 Prerequisites
-Make sure you have:
+Make sure you have the following installed:
 Node.js
 npm
 Python 3
@@ -139,9 +140,9 @@ ollama run llama3.2
 4. Start the FastAPI backend
 Open a new terminal:
 cd ksearch/backend
-If using a virtual environment:
+If you are using a Python virtual environment:
 source venv/bin/activate
-Then:
+Then start FastAPI:
 uvicorn main:app --reload
 The backend will run at:
 http://localhost:8000
@@ -155,7 +156,7 @@ http://localhost:5173
 🔒 Privacy
 KSearch is designed around a local-first architecture.
 AI responses are generated using a locally running Ollama model rather than requiring a paid cloud LLM API.
-Search requests are handled through the self-hosted SearXNG instance.
+Search requests are routed through a self-hosted SearXNG instance.
 💡 Why I Built This
 KSearch was built to explore how modern AI search systems can combine:
 Traditional information retrieval
@@ -164,7 +165,7 @@ Local large language models
 Retrieval-grounded generation
 Conversational context
 Source attribution
-The project also provided hands-on experience integrating multiple independently running services into a single application.
+The project also provided hands-on experience integrating multiple independently running services into a single full-stack application.
 🔮 Future Improvements
 Possible future improvements include:
 Markdown rendering for AI responses
@@ -180,32 +181,3 @@ Additional local LLM support
 👨‍💻 Author
 Karan Shah
 Built as a personal project to explore AI-powered search, local LLMs and full-stack application development.
-
-Save it:
-
-```text
-CTRL + O
-Enter
-CTRL + X
-Step 2 — Check it
-Run:
-ls
-You should now have:
-README.md
-backend
-frontend
-searxng
-.gitignore
-Then:
-git status
-You should see:
-Untracked files:
-    README.md
-Step 3 — Commit the README
-Run:
-git add README.md
-Then:
-git commit -m "Add project documentation"
-Then push:
-git push
-After that, refresh your GitHub repository.
