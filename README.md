@@ -21,7 +21,19 @@ Instead of relying on a centralized search engine and a cloud-based AI service, 
 - 🐳 **Dockerized Infrastructure** — SearXNG and Valkey run through Docker Compose.
 
 ---
+## 🎥 Demo
 
+### AI-Powered Web Search
+
+![KSearch Web Search](screenshots/ai-web.png)
+
+### News Search
+
+![KSearch News Search](screenshots/ai-news.png)
+
+### Image Search
+
+![KSearch Image Search](screenshots/ai-images.png)
 ## 🏗️ Architecture
 
 ```text
